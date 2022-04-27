@@ -1,1 +1,2 @@
-
+# Ignore ROS ws cmakelists
+./CMakeLists.txt

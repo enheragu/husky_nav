@@ -5,7 +5,7 @@ FROM ros:noetic-ros-core
 RUN apt-get update
 RUN apt-get install --fix-missing
 RUN apt-get install -y apt-utils
-RUN apt-get -y install cmake make gcc g++
+RUN apt-get -y install cmake make gcc g++ git
 
 # Installation of husky pkgs and setup
 RUN apt-get update
@@ -31,6 +31,8 @@ RUN echo ". /ros_entrypoint.sh && . /cpr_worksp/devel/setup.bash" > /root/.bashr
 
 RUN mkdir -p workspace/src
 RUN echo ". /workspace/devel/setup.bash" > /root/.bashrc
+## Custom stuff enheragu
+RUN echo 'PS1="\n\[\e[32;1m\]\u@\h\[\e[37;1m\] \w\n\[\e[0m\]\[\$txtcyn\]\[\e[1;35m\]-\$(__git_ps1)\[\e[0;39m\]\[\${txtred}\]\${git_dirty}\[\$txtrst\]\$ "' > /root/.bashrc
 
 # ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["/bin/bash"]
