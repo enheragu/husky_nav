@@ -1,0 +1,3 @@
+[submodule "husky_custom"]
+	path = husky_custom
+	url = https://github.com/enheragu/husky_custom
